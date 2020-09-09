@@ -144,7 +144,6 @@ namespace Calculator
             PleaseEnterNum();
             numberOne = TextToNumber(Console.ReadLine());
 
-
             Console.WriteLine("Please enter the number that you wish to divide by: ");
             numberTwo = TextToNumber(Console.ReadLine());
 
