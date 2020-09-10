@@ -7,7 +7,7 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("--------Welcome!--------\n" +
+            Console.WriteLine("-----------------Welcome!-----------------\n" +
                 "I'm HAM (Happily Automated Mathematician). \n" +
                 "How may I be of assistance today?");
             Console.WriteLine("Press any key to continue");
@@ -17,7 +17,7 @@ namespace Calculator
             do
             {
                 Console.Clear();
-                Console.Write("---------------Calculator Menu---------------\n" +
+                Console.Write("------Calculator Menu------\n" +
                     "Enter 1 for Addition. \n" +
                     "Enter 2 for Subtracion.\n" +
                     "Enter 3 for Multiplication\n" +
@@ -43,7 +43,8 @@ namespace Calculator
                     case "4":
                         Division();
                         break;
-                   
+
+                    case "quit":
                     case "Quit":
                         runMenu = false;
                         break;
@@ -76,21 +77,22 @@ namespace Calculator
             double numberTwo;
             double additionResult;
 
-            Console.Clear();
-            Console.WriteLine("--------Addition--------");
-            PleaseEnterNum();
-            numberOne = TextToNumber(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("--------Addition--------");
+                PleaseEnterNum();
 
-            Console.WriteLine("Please enter the number that you wish to add: ");
-            numberTwo = TextToNumber(Console.ReadLine());
+                    numberOne = TextToNumber(Console.ReadLine());
 
-            additionResult = numberOne + numberTwo;
+                    Console.WriteLine("Please enter the number that you wish to add: ");
+                    numberTwo = TextToNumber(Console.ReadLine());
+
+                additionResult = numberOne + numberTwo;
 
             Console.Write("That adds up to: " + additionResult);
+          
             BackToMainMenu();
 
         }
-
 
          static void Subtraction()
          {
@@ -98,17 +100,19 @@ namespace Calculator
             double numberTwo;
             double subtractionResult;
 
-            Console.Clear();
-            Console.WriteLine("------Subtraction------");
-            PleaseEnterNum();
-            numberOne = TextToNumber(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("------Subtraction------");
+                PleaseEnterNum();
+           
+                    numberOne = TextToNumber(Console.ReadLine());
 
-            Console.WriteLine("Please enter the number that you wish to subtract: ");
-            numberTwo = TextToNumber(Console.ReadLine());
+                    Console.WriteLine("Please enter the number that you wish to subtract: ");
+                    numberTwo = TextToNumber(Console.ReadLine());
 
-            subtractionResult = numberOne - numberTwo;
+                subtractionResult = numberOne - numberTwo;
 
             Console.Write("That subtracts to: " + subtractionResult);
+            
             BackToMainMenu();
 
         } 
@@ -119,17 +123,19 @@ namespace Calculator
             double numberTwo;
             double multiplicationResult;
 
-            Console.Clear();
-            Console.WriteLine("--------Multiplication--------");
-            PleaseEnterNum();
-            numberOne = TextToNumber(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("--------Multiplication--------");
+                PleaseEnterNum();
+            
+                    numberOne = TextToNumber(Console.ReadLine());
 
-            Console.WriteLine("Please enter the number that you wish to multiply with: ");
-            numberTwo = TextToNumber(Console.ReadLine());
+                    Console.WriteLine("Please enter the number that you wish to multiply with: ");
+                    numberTwo = TextToNumber(Console.ReadLine());
 
-            multiplicationResult = numberOne * numberTwo;
+                multiplicationResult = numberOne * numberTwo;
 
             Console.Write("That multiplies to: " + multiplicationResult);
+            
             BackToMainMenu();
 
         } 
@@ -144,8 +150,14 @@ namespace Calculator
             PleaseEnterNum();
             numberOne = TextToNumber(Console.ReadLine());
 
-            Console.WriteLine("Please enter the number that you wish to divide by: ");
-            numberTwo = TextToNumber(Console.ReadLine());
+                Console.WriteLine("Please enter the number that you wish to divide by: ");
+                numberTwo = TextToNumber(Console.ReadLine());
+
+                    if (numberTwo == 0.0 )
+                    {
+                        Console.WriteLine("I'm sorry, you can not divide by zero. Please try another number:");
+                        numberTwo = TextToNumber(Console.ReadLine());
+                    }
 
             divisionResult = numberOne / numberTwo;
 
