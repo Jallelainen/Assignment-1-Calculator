@@ -71,6 +71,7 @@ namespace Calculator
 
             return number;
          }
+
         static void Addition()
         {
             double numberOne;
@@ -139,6 +140,7 @@ namespace Calculator
             BackToMainMenu();
 
         } 
+
          static void Division()
          {
             double numberOne;
@@ -165,6 +167,7 @@ namespace Calculator
             BackToMainMenu();
 
          }
+
         static void PleaseEnterNum()
         {
             Console.WriteLine("Please enter a number: ");
