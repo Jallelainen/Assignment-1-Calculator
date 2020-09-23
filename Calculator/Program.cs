@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Calculator
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -29,7 +29,7 @@ namespace Calculator
                 switch (userInput)
                 {
                     case "1":
-                       Addition();
+                        Addition();
                         break;
 
                     case "2":
@@ -63,86 +63,86 @@ namespace Calculator
 
         }
 
-         static double TextToNumber(string textNumber)
-         {
+        static double TextToNumber(string textNumber)
+        {
             double number = 0.0;
 
             double.TryParse(textNumber, out number);
 
             return number;
-         }
+        }
 
-        static void Addition()
+        public static void Addition()
         {
             double numberOne;
             double numberTwo;
             double additionResult;
 
-                Console.Clear();
-                Console.WriteLine("--------Addition--------");
-                PleaseEnterNum();
+            Console.Clear();
+            Console.WriteLine("--------Addition--------");
+            PleaseEnterNum();
 
-                    numberOne = TextToNumber(Console.ReadLine());
+            numberOne = TextToNumber(Console.ReadLine());
 
-                    Console.WriteLine("Please enter the number that you wish to add: ");
-                    numberTwo = TextToNumber(Console.ReadLine());
+            Console.WriteLine("Please enter the number that you wish to add: ");
+            numberTwo = TextToNumber(Console.ReadLine());
 
-                additionResult = numberOne + numberTwo;
+            additionResult = Add(numberOne, numberTwo);
 
             Console.Write("That adds up to: " + additionResult);
-          
+
             BackToMainMenu();
 
         }
 
-         static void Subtraction()
-         {
+        public static void Subtraction()
+        {
             double numberOne;
             double numberTwo;
             double subtractionResult;
 
-                Console.Clear();
-                Console.WriteLine("------Subtraction------");
-                PleaseEnterNum();
-           
-                    numberOne = TextToNumber(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("------Subtraction------");
+            PleaseEnterNum();
 
-                    Console.WriteLine("Please enter the number that you wish to subtract: ");
-                    numberTwo = TextToNumber(Console.ReadLine());
+            numberOne = TextToNumber(Console.ReadLine());
 
-                subtractionResult = numberOne - numberTwo;
+            Console.WriteLine("Please enter the number that you wish to subtract: ");
+            numberTwo = TextToNumber(Console.ReadLine());
+
+            subtractionResult = Sub(numberOne, numberTwo);
 
             Console.Write("That subtracts to: " + subtractionResult);
-            
+
             BackToMainMenu();
 
-        } 
+        }
 
-         static void Multiplication()
-         {
+        public static void Multiplication()
+        {
             double numberOne;
             double numberTwo;
             double multiplicationResult;
 
-                Console.Clear();
-                Console.WriteLine("--------Multiplication--------");
-                PleaseEnterNum();
-            
-                    numberOne = TextToNumber(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("--------Multiplication--------");
+            PleaseEnterNum();
 
-                    Console.WriteLine("Please enter the number that you wish to multiply with: ");
-                    numberTwo = TextToNumber(Console.ReadLine());
+            numberOne = TextToNumber(Console.ReadLine());
 
-                multiplicationResult = numberOne * numberTwo;
+            Console.WriteLine("Please enter the number that you wish to multiply with: ");
+            numberTwo = TextToNumber(Console.ReadLine());
+
+            multiplicationResult = Mul(numberOne, numberTwo);
 
             Console.Write("That multiplies to: " + multiplicationResult);
-            
+
             BackToMainMenu();
 
-        } 
+        }
 
-         static void Division()
-         {
+        public static void Division()
+        {
             double numberOne;
             double numberTwo;
             double divisionResult;
@@ -152,21 +152,41 @@ namespace Calculator
             PleaseEnterNum();
             numberOne = TextToNumber(Console.ReadLine());
 
-                Console.WriteLine("Please enter the number that you wish to divide by: ");
+            Console.WriteLine("Please enter the number that you wish to divide by: ");
+            numberTwo = TextToNumber(Console.ReadLine());
+
+            if (numberTwo == 0.0)
+            {
+                Console.WriteLine("I'm sorry, you can not divide by zero. Please try another number:");
                 numberTwo = TextToNumber(Console.ReadLine());
+            }
 
-                    if (numberTwo == 0.0 )
-                    {
-                        Console.WriteLine("I'm sorry, you can not divide by zero. Please try another number:");
-                        numberTwo = TextToNumber(Console.ReadLine());
-                    }
-
-            divisionResult = numberOne / numberTwo;
+            divisionResult = Div(numberOne, numberTwo);
 
             Console.Write("That divides to: " + divisionResult);
             BackToMainMenu();
 
-         }
+        }
+
+        public static double Add(double numA, double numB)
+        {
+            return numA + numB;
+        }
+
+        public static double Sub(double numA, double numB)
+        {
+            return numA - numB;
+        }
+
+        public static double Mul(double numA, double numB)
+        {
+            return numA * numB;
+        }
+
+        public static double Div(double numA, double numB)
+        {
+            return numA / numB;
+        }
 
         static void PleaseEnterNum()
         {
